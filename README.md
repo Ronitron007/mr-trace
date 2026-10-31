@@ -1,5 +1,7 @@
 # mr-trace
 
+> **Archived.** mr-trace is now part of **mr** itself as the `mr trace` command. Use [Ronitron007/mr](https://github.com/Ronitron007/mr) instead.
+
 See every job that went through **mr** (Rohan's model router) at a glance: which models it climbed through,
 where it failed and why, where the time went, and how it ended. No log reading.
 
