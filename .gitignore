@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+# real traces stay on the box; only scrubbed demo data is committed
+/site/
+/data/
+*.local.html
+.env
+.env.*
+/share/
+HANDOFF.md
+/spikes/out/
+/screenshots/

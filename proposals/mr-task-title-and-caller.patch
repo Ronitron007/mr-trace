@@ -1,0 +1,39 @@
+--- a/mr/commands/run.py	2026-10-31 01:15:11.128656963 +0530
++++ b/mr/commands/run.py	2026-10-31 01:15:11.136658024 +0530
+@@ -373,6 +373,27 @@
+ 
+ # --- records --------------------------------------------------------------------
+ 
++def _title(text: str | None) -> str | None:
++    """First non-empty line of the task text, at most 120 chars (mr-trace shows it as the job name)."""
++    for line in (text or "").splitlines():
++        line = line.strip()
++        if line:
++            return line[:120]
++    return None
++
++
++def _caller() -> str | None:
++    """Who asked mr to run: $MR_CALLER (e.g. 'goosebump', 'outbox'), else the parent process name."""
++    v = os.environ.get("MR_CALLER")
++    if v:
++        return v[:60]
++    try:
++        with open(f"/proc/{os.getppid()}/comm", encoding="utf-8") as f:
++            return f.read().strip()[:60] or None
++    except OSError:
++        return None
++
++
+ def _task_record(c: _Ctx, ended: str) -> dict:
+     d, task, last = c.d, c.task, (c.rungs[-1] if c.rungs else None)
+     esc = {k: sum(r["class"] == k for r in c.rungs) for k in ("skipped", "tried_wrong", "spec_suspect", "off_track")}
+@@ -386,7 +407,7 @@
+         "role": "task", "task": task.id, "started_at": c.started_at, "ended_at": ended,
+         "wall_s": int(time.time() - c.t0), "repo": os.path.basename(task.repo),
+         "base": task.base[:12], "text_sha": hashlib.sha256(normalise(task.text).encode()).hexdigest()[:16],
+-        "title": None, "type": d.type, "difficulty": d.difficulty, "risk": d.risk,
++        "title": _title(task.text), "caller": _caller(), "type": d.type, "difficulty": d.difficulty, "risk": d.risk,
+         "risk_tags": sorted(d.risk_tags), "route": d.route, "route_src": d.sources.get("route"),
+         "shadow": {"judge": None, "classifier": None}, "ladder": list(c.ladder),
+         "first_rung": c.rung, "final_rung": ran[-1] if ran else c.rung,
