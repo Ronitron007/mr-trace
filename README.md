@@ -66,3 +66,12 @@ Parts of this repo were routed through mr itself, and those jobs are in the demo
 job t-38ba36a1. mr then rejected the job as `off_track` because I had left my own untracked notes in the tree, and
 the trace shows exactly that. Jobs t-6886965c and t-9763fa8d failed as `infra` / `invalid_plan` because the
 box's cursor-agent was logged out (both are visible in the view as 1-second red bars).
+
+## Private copy with real data (Cloudflare R2)
+
+The public demo is scrubbed. To see your real jobs from a phone or another computer without a tunnel, `worker/worker.js` serves one real-data snapshot from a **private** R2 bucket (no public r2.dev access):
+
+- `GET /v/<view-token>` returns the snapshot, with `no-store`, `noindex` and `no-referrer` headers. Every other path returns 403.
+- `PUT /upload` with `Authorization: Bearer <upload-token>` replaces it.
+
+The tokens are Worker secrets (`VIEW_TOKEN`, `UPLOAD_TOKEN`) and are never committed. `scripts/publish_r2.sh` rebuilds the snapshot, refuses to upload it if anything looks like a key or token, then uploads it. It reads the upload URL and token from an env file outside the repo (`MR_TRACE_ENV`, mode 600).

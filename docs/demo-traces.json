@@ -1,7 +1,7 @@
 [
  {
-  "task": "t-82347842",
-  "title": "Code task, medium, 1 attempt (demo)",
+  "task": "t-7a503fbc",
+  "title": "Code task, medium (demo)",
   "why": null,
   "repo": "claude-skills-sk",
   "caller": null,
@@ -31,25 +31,119 @@
    "units": null,
    "claude_pts": null,
    "usd_equiv": null,
-   "tok_in": 56097,
-   "tok_out": 64275
+   "tok_in": 0,
+   "tok_out": 0
   },
   "dirs": null,
   "commit": null,
-  "t0": 1793420376.0,
+  "t0": 1793423810.0,
   "t1": null,
-  "start": "2026-10-31T09:49:36+05:30",
+  "start": "2026-10-31T10:46:50+05:30",
   "end": null,
   "wall_s": null,
   "time": {
-   "wall_s": 2323.0,
-   "model_s": 2309.3,
-   "mr_s": 13.7,
+   "wall_s": 293.4,
+   "model_s": 292.0,
+   "mr_s": 1.3,
    "unlogged_s": 0.0,
-   "plan_s": 2148.3,
+   "plan_s": 292.0,
    "retry_s": 0.0
   },
   "cost_measured": false,
+  "steps": [
+   {
+    "role": "planner",
+    "attempt": null,
+    "rung": "G-h",
+    "rank": 3,
+    "model": "grok-4.7-high-fast",
+    "t0": 1793423811.331851,
+    "t1": null,
+    "wall_s": null,
+    "decision": null,
+    "ok": null,
+    "live": true,
+    "failure_class": null,
+    "signals": {},
+    "tokens": {},
+    "tools": [],
+    "diff": null,
+    "escalated_from": null,
+    "summary": null,
+    "pushback": null,
+    "requirements": null,
+    "patch": null,
+    "raw": null,
+    "session_id": null,
+    "task_hint": null,
+    "line": "Plan on G-h (grok-4.7-high-fast) \u00b7 \u2013 \u00b7 failed"
+   }
+  ],
+  "events": [],
+  "headline": "Running: planner on G-h (grok-4.7-high-fast)",
+  "shape": "mostly planning"
+ },
+ {
+  "task": "t-82347842",
+  "title": "Code task, medium, 1 attempt (demo)",
+  "why": null,
+  "repo": "claude-skills-sk",
+  "caller": null,
+  "status": "interrupted",
+  "exit": 143,
+  "route": "cascade",
+  "type": "code",
+  "difficulty": "medium",
+  "risk": "low",
+  "route_sources": {
+   "route": "param",
+   "type": "param",
+   "difficulty": "param",
+   "risk": "rule",
+   "ladder": "default"
+  },
+  "prepass_confident": false,
+  "ladder": [
+   "G-h",
+   "G-x"
+  ],
+  "first_rung": "G-h",
+  "final_rung": "G-h",
+  "esc": {
+   "skipped": 0,
+   "tried_wrong": 0,
+   "spec_suspect": 1,
+   "off_track": 0
+  },
+  "final_signals": {
+   "H": false,
+   "D": true,
+   "A": true,
+   "C": null
+  },
+  "cost": {
+   "units": 16.39,
+   "claude_pts": 0,
+   "usd_equiv": 0.0,
+   "tok_in": 123879,
+   "tok_out": 104893
+  },
+  "dirs": null,
+  "commit": null,
+  "t0": 1793420375.0,
+  "t1": 1793423792.0,
+  "start": "2026-10-31T09:49:35+05:30",
+  "end": "2026-10-31T10:46:32+05:30",
+  "wall_s": 3416,
+  "time": {
+   "wall_s": 3416,
+   "model_s": 3131.8,
+   "mr_s": 13.7,
+   "unlogged_s": 270.4,
+   "plan_s": 2148.3,
+   "retry_s": 983.6
+  },
+  "cost_measured": true,
   "steps": [
    {
     "role": "planner",
@@ -374,34 +468,525 @@
    },
    {
     "role": "implementer",
-    "attempt": null,
+    "attempt": 2,
     "rung": "G-h",
     "rank": 3,
     "model": "grok-4.7-high-fast",
-    "t0": 1793422537.9588685,
-    "t1": null,
-    "wall_s": null,
-    "decision": null,
-    "ok": null,
-    "live": true,
-    "failure_class": null,
-    "signals": {},
-    "tokens": {},
-    "tools": [],
-    "diff": null,
-    "escalated_from": null,
-    "summary": null,
+    "path": "cursor",
+    "t0": 1793422537.0,
+    "t1": 1793423520.58,
+    "wall_s": 983.58,
+    "decision": "stop",
+    "ok": false,
+    "failure_class": "spec_suspect",
+    "failure_source": "rules",
+    "signals": {
+     "H": false,
+     "D": true,
+     "A": true,
+     "C": null
+    },
+    "diff": {
+     "files": 10,
+     "add": 1169,
+     "del": 69
+    },
+    "mr_result": "pushback",
     "pushback": null,
     "requirements": null,
+    "confidence": 0.86,
+    "summary": null,
+    "is_error": false,
+    "rc": 0,
+    "tokens": {
+     "in": 67782,
+     "out": 40618,
+     "cache": 3085184
+    },
+    "usd": null,
+    "claude_pts": null,
+    "session_id": null,
+    "tools": [
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Glob",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Glob",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Glob",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "Write",
+      "kind": "edit"
+     },
+     {
+      "name": "Write",
+      "kind": "edit"
+     },
+     {
+      "name": "Write",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "StrReplace",
+      "kind": "edit"
+     },
+     {
+      "name": "Write",
+      "kind": "edit"
+     },
+     {
+      "name": "Write",
+      "kind": "edit"
+     },
+     {
+      "name": "Shell",
+      "kind": "shell"
+     },
+     {
+      "name": "Shell",
+      "kind": "shell"
+     },
+     {
+      "name": "Shell",
+      "kind": "shell"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Grep",
+      "kind": "search"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Read",
+      "kind": "read"
+     },
+     {
+      "name": "Shell",
+      "kind": "shell"
+     }
+    ],
+    "turn_ended": true,
+    "task_hint": null,
     "patch": null,
     "raw": null,
-    "session_id": null,
-    "task_hint": null,
-    "line": "Implement on G-h (grok-4.7-high-fast) \u00b7 \u2013 \u00b7 failed"
+    "isolation": "W7",
+    "escalated_from": null,
+    "line": "Implement on G-h (grok-4.7-high-fast) \u00b7 16m 24s \u00b7 failed: spec_suspect \u00b7 +1169 -69 in 10 files"
    }
   ],
   "events": [],
-  "headline": "Running: implementer on G-h (grok-4.7-high-fast)",
+  "headline": "Interrupted \u00b7 56m 56s \u00b7 mostly planning",
   "shape": "mostly planning"
  },
  {

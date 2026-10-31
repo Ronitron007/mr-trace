@@ -206,7 +206,7 @@ function renderDetail(){
    ${fails.length?`<div class="why">${fails.map(f=>`<b>${esc(f)}</b>: ${esc(DATA.failureMeaning[f]||"")}`).join(" · ")}</div>`:""}</section>
    <section><h3>Step by step</h3><ol class="steps">${chrono.map(x=>x.h).join("")}</ol></section></div>`;
 }
-function select(id){ state.sel=id; history.replaceState(null,"","#"+encodeURIComponent(id)); renderBoard(); renderDetail(); $("#detail").scrollTop=0; }
+function select(id){ state.sel=id; history.replaceState(null,"","#"+encodeURIComponent(id)); renderBoard(); renderDetail(); $("#detail").scrollTop=0; if(matchMedia("(max-width:900px)").matches) $("#detail").scrollIntoView({behavior:"smooth"}); }
 
 /* ---------- wiring ---------- */
 function init(){
